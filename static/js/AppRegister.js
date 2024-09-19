@@ -1,3 +1,3 @@
 function registro_u() {
-alert("Registro Correcto")
+window.location = '/reg_view'
 }
