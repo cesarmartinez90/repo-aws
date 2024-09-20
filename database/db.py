@@ -19,8 +19,8 @@ def connection_SQL():
          print("Error", err)
     return None
 
-def insert():
-    instruction = "INSERT INTO users VALUES(125,'Carlos','Rojas','Entrega de informe','Pendiente','Ingeniero','15/09/2024');"
+def insert(id, nombre, apellido, actividad, estado, cargo, fecha):
+    instruction = "INSERT INTO users VALUES("+id+",'"+nombre+"','"+apellido+"','"+actividad+"','"+estado+"','"+cargo+"','"+fecha+"');"
     connection = connection_SQL()
     cursor = connection.cursor()
     cursor.execute(instruction)
