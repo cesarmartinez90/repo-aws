@@ -39,6 +39,7 @@ def consulta(id):
         cursor = connection.cursor() 
         cursor.execute(instruction)
         result = cursor.fetchall()
+        return result
     except Exception as err:
         print("Error",err)
         return None

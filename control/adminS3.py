@@ -16,12 +16,14 @@ def get_file():
     print(bucket_obj)
     
 def save_photo(id, photo):
-    photo_path = "/tmp/" + photo.filename
+    extension = photo.filename.split(".")[1]
+    photo_name = id + "." + extension
+    photo_path = "/tmp/" + photo_name
     photo.save(photo_path)
     print("La Foto fue guardada")
-    return photo_path
+    return photo_path, photo_name
 
-def upload_photoS3(sessionS3, photo_path):
-    folder_imagesS3 = "images/photo1.jpg" 
+def upload_photoS3(sessionS3, photo_path, photo_name):
+    folder_imagesS3 = "images/" +  photo_name
     sessionS3.meta.client.upload_file(photo_path, bucket_name, folder_imagesS3)
     print("Foto Subida")
