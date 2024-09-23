@@ -1,0 +1,28 @@
+h1, div {
+    text-align: center;
+    font-size: 22px;
+    border-radius: 10px;
+    font-family: 'Arial', sans-serif; color: #333;
+    }
+
+html {  
+    background-color: rgba(34, 31, 31, 0.938);
+    font-size: 20px;
+}
+body {  
+    background-color: rgb(192, 235, 137);
+    font-size: 20px;
+}
+button {  
+    color: black;
+    font-size: 20px;
+    padding: 10px 20px; 
+    background-color: #3789e7; 
+    border:  #080808; color: #080808;
+    border-radius: 8px; cursor: pointer; transition: background-color 0.3s;"
+
+}
+
+div{
+    font-size: 22px;
+}

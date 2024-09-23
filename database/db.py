@@ -20,9 +20,25 @@ def connection_SQL():
     return None
 
 def insert(id, nombre, apellido, actividad, estado, cargo, fecha):
-    instruction = "INSERT INTO users VALUES("+id+",'"+nombre+"','"+apellido+"','"+actividad+"','"+estado+"','"+cargo+"','"+fecha+"');"
-    connection = connection_SQL()
-    cursor = connection.cursor()
-    cursor.execute(instruction)
-    connection.commit()
-    print("Usuario agregado")
+    try:
+        instruction = "INSERT INTO users VALUES("+id+",'"+nombre+"','"+apellido+"','"+actividad+"','"+estado+"','"+cargo+"','"+fecha+"');"
+        connection = connection_SQL()
+        cursor = connection.cursor()
+        cursor.execute(instruction)
+        connection.commit()
+        print("Usuario agregado")
+    except Exception as err:
+        print("Error",err)
+        return None
+
+
+def consulta(id):
+    try:
+        instruction = "SELECT * FROM users WHERE id=" + id
+        connection = connection_SQL()
+        cursor = connection.cursor() 
+        cursor.execute(instruction)
+        result = cursor.fetchall()
+    except Exception as err:
+        print("Error",err)
+        return None
