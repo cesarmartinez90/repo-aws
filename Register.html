@@ -10,14 +10,15 @@
 <body>
     <h1 style="font-family: 'Arial', sans-serif;">REGISTRO Y CONSULTA ACTIVIDADES LABORALES</h1>
 
-<form action="/reg_user" method="post"> 
-        <label>ID</label><input name="id"><br><br>
-        <label>Nombre</label><input name="nombre"><br><br>
-        <label>Apellido</label><input name="apellido"><br><br>
-        <label>Actividad</label><input name="actividad"><br><br>
-        <label>Estado</label><input name="estado"><br><br>
-        <label>Cargo</label><input name="cargo"><br><br>
-        <label>Fecha</label><input name="fecha"><br><br>
+<form action="/reg_user" method="post" enctype="multipart/form-data"> 
+        <label>ID</label><input type="number" name="id"><br><br>
+        <label>Nombre</label><input type="text" name="nombre"><br><br>
+        <label>Apellido</label><input type="text" name="apellido"><br><br>
+        <label>Actividad</label><input type="text" name="actividad"><br><br>
+        <label>Estado</label><input type="text" name="estado"><br><br>
+        <label>Cargo</label><input type="text" name="cargo"><br><br>
+        <label>Fecha</label><input type="date" name="fecha"><br><br>
+        <input type="file" name="photo"><br><br>
         <button> Registro</button>
         
               

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from server import app
 from database.db import *
+from control.adminS3 import *
 
 @app.route('/reg_view')
 def reg_view():
@@ -14,6 +15,7 @@ def consultar_view():
 @app.route('/reg_user', methods=["post"])
 def reg_user():
     data = request.form
+    file = request.files 
     id = data["id"]
     nombre = data["nombre"]
     apellido = data["apellido"]
@@ -21,7 +23,12 @@ def reg_user():
     estado = data["estado"]
     cargo = data["cargo"]
     fecha = data["fecha"]
-    insert(id, nombre, apellido, actividad, estado, cargo, fecha)
+    photo = file["photo"]
+    photo_path = save_photo(id, photo)
+    sessionS3 = connectionS3()
+    upload_photoS3(sessionS3, photo_path)
+    #insert(id, nombre, apellido, actividad, estado, cargo, fecha)
+
     return "Usuario Agregado"
 
 @app.route('/consultar_user', methods=["post"])
