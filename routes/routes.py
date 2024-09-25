@@ -39,13 +39,16 @@ def reg_user():
 def consultar_user():
     id = request.get_json()
     result= consulta(id)
-    file_found = get_file()
+
+    photo_name = f"{id}.jpg"
+    image_url= f"https://{bucket_name}.s3.us-east-2.amazonaws.com/images/{photo_name}"
+
     resp_data = {
         'nombre': result[0][1],
         'apellido': result[0][2],
         'actividad': result[0][3],
         'fecha': result[0][6],
-        'photo': file_found
+        'photo': image_url
     }
     return jsonify(resp_data)
     print(result)

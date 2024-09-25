@@ -27,3 +27,5 @@ def upload_photoS3(sessionS3, photo_path, photo_name):
     folder_imagesS3 = "images/" +  photo_name
     sessionS3.meta.client.upload_file(photo_path, bucket_name, folder_imagesS3)
     print("Foto Subida")
+    #url_photo = f"https://{bucket_name}.se.amazonaws.com/{folder_imagesS3}"
+    #return url_photo
